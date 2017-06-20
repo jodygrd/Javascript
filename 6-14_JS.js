@@ -45,7 +45,16 @@ var list1 = [
 
 */
 
+function averageAge(array) {
+  sum = 0;
+  for (i=0;i<array.length;i++) {
+    sum += array[i].age;
+  }
+  const average = sum/array.length;
+  return parseInt(average);
+}
 
+averageAge(list1)
 
 
 
@@ -88,7 +97,15 @@ write a function that adds the username property to each object in the input arr
 
 */
 
+function addUsername(array) {
+  let newArray = array;
+  newArray.forEach(person => {
+    person.username = person.firstName.toLowerCase() + person.lastName.charAt(0).toLowerCase() + (2020-person.age).toString();
+  });   
+  return newArray;
+}
 
+addUsername(list1)
 
 
 
@@ -111,6 +128,7 @@ write a function that adds the username property to each object in the input arr
   const evens = arr.filter((n) => n % 2 == 0 )
   then sort it evens.sort((a,b) => a - b) 
 */
+
 
 
 
