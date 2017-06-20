@@ -17,9 +17,14 @@ var list1 = [
 
 // Should return 3
 
+function counter(array) {
+  let newArray = array.filter(person => (person.language === 'JavaScript' && person.continent === 'Europe'));
+  return newArray.length;
+}
 
+counter(list1)
 
-                                              // PROBLEM #2 //
+                                // PROBLEM #2 //
 // Your task is to return an array where each object will have a new property 'greeting' with the following string value:
 
 // Hi < firstName here >, what do you like the most about < language here >?
@@ -49,6 +54,17 @@ var list1 = [
 // you will need a block statement
 // Use .map
 
+function addGreeting(array) {
+  var newArray = array
+  newArray.forEach(item => {
+    item.greeting = `Hi ${item.firstName}, what do you like the most about ${item.language}`
+  })
+  return newArray
+}
+
+addGreeting(list1)
+
+
 
                                               // PROBLEM #3 //
 // You will be given an array of objects (associative arrays in PHP) representing data about developers who have signed up to attend the next coding meetup that you are organising. The list is ordered according to who signed up first.
@@ -69,6 +85,14 @@ var list1 = [
 
 // To embed javascript variables we use backticks ` and ${variable}
 
+function findDev(array){
+  var dev = array.find(item => item.language === 'Python')
+  return `${dev.firstName} is the first Python developer to sign up`
+}
+
+
+findDev(list1)
+
 
                                               // PROBLEM #4 //
 // You have an array of numbers.
@@ -84,6 +108,26 @@ var list1 = [
 
 // const odds = arr.filter((n) => n % 2 != 0 )
 // then sort it odds.sort((a,b) => a - b) 
+
+var numbers = [5, 3, 2, 8, 1, 4]
+
+
+function sortArray(array) {
+  let odds = array.filter(item => item%2 !== 0);
+  odds.sort((a,b) => a - b);
+  let ind = 0; //index for odds array
+  for (i = 0; i < array.length; i++) {
+    if (array[i]%2 !== 0) {
+      array[i] = odds[ind];
+      ++ind;
+    }
+  }
+  return array;
+}
+
+
+sortArray(numbers)
+
 
 
                                               // QUICK PROBLEM #5 //
